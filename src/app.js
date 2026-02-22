@@ -1,10 +1,10 @@
 const express  = require('express');
 const App = express();
-require('dotenv').config();
-const PORT = process.env.PORT || 3001;
+require('dotenv').config();//habilitar variaveis de ambiente
+const PORT = process.env.PORT || 3001;//caso nao jaha variavel de ambiemte pegue 3001
 App.use(express.json());
 const cors = require('cors');
-const routes = require('./Routes');
+const routes = require('./Routes');//importar as rotas
 const { Migration } = require('./Migration'); //importando a migracao de base de dados
 
 Migration();

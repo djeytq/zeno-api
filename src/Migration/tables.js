@@ -3,7 +3,7 @@ const cadastros = `
     id SERIAL, 
     first_name VARCHAR(100) NOT NULL,
     last_name VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
     phone VARCHAR(100),
     description Text,
     created_at DATE DEFAULT CURRENT_DATE,

@@ -52,10 +52,15 @@ https://tqweb-api.onrender.com/api
 ## Estrutura
 
 src/
- ├── controllers/
- ├── models/
+ ├── controllers/cadastros.js
+ ├── database/index.js
+ ├── migration/
+ |      |__index,js
+ |      |__tables.js
  ├── routes/
- ├── middlewares/
+ |      |__index,js
+ |      |__cadastros.routes.js
+ ├── helper/validations.js
  └── app.js
 
  ## Códigos de Status
@@ -69,7 +74,24 @@ src/
 
  ## Roadmap
 
-- Instalar as dependências e estruturar o projeto
-- Criar o migration e a base de dados (PostgreSQL)
-- Criar o controler de cadastro
+- Instalar as dependências e estruturar o projeto - __feito__
+- Criar o migration e a base de dados (PostgreSQL) - __feito__
+- Criar o controler de cadastro - __feito__
+- Criar as rotas - __feito__
 - Adicionar documentação Swagger (caso eu tiver tempo)
+
+## Base de dados
+
+__Cadastros__(
+    id SERIAL, 
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    phone VARCHAR(100),
+    description Text,
+    created_at DATE DEFAULT CURRENT_DATE,
+    updated_at DATE DEFAULT CURRENT_DATE
+    )
+
+
+## Rotas
