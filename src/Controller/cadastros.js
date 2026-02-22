@@ -1,5 +1,6 @@
 //crud completo capsulado dentro da classe-Cadastros
 const pool = require('../Database');
+const {validateFields} = require('../helper/validations')
 
 class Cadastros {
 
@@ -9,6 +10,10 @@ class Cadastros {
             const { first_name, last_name, email, phone, description } = req.body; //capturar os dados da requisicao
             if (!first_name || !last_name | !email) {//verifica campos obrigatorios
                 res.status(400).json({ message: "Preencha tods os campos obtigatórios" });
+            }
+            const {isBad, warn} = validateFields(first_name, last_name, email, phone);
+            if(isBad){
+                res.status(400).json({ message: warn });
             }
             const query = `INSERT INTO cadastros
             (first_name, last_name, email, phone, description)
