@@ -4,8 +4,10 @@ require('dotenv').config();
 const PORT = process.env.PORT || 3001;
 App.use(express.json());
 const cors = require('cors');
-const routes = require('./Routes')
+const routes = require('./Routes');
+const { Migration } = require('./Migration'); //importando a migracao de base de dados
 
+Migration();
 App.use(cors());
 
 App.get('/', (req, res)=>{
