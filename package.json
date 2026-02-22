@@ -1,7 +1,19 @@
 {
+  "name": "api-zeno",
+  "version": "1.0.0",
+  "description": "API que vai permitir fazer crud de cadastros",
+  "main": "app.js",
   "dependencies": {
+    "cors": "^2.8.6",
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3"
-  }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node src/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
