@@ -9,11 +9,11 @@ class Cadastros {
         try {
             const { first_name, last_name, email, phone, description } = req.body; //capturar os dados da requisicao
             if (!first_name || !last_name | !email) {//verifica campos obrigatorios
-                res.status(400).json({ message: "Preencha tods os campos obtigatórios" });
+                return res.status(400).json({ message: "Preencha tods os campos obtigatórios" });
             }
             const {isBad, warn} = validateFields(first_name, last_name, email, phone);
             if(isBad){
-                res.status(400).json({ message: warn });
+                return res.status(400).json({ message: warn });
             }
             const query = `INSERT INTO cadastros
             (first_name, last_name, email, phone, description)
@@ -57,7 +57,11 @@ class Cadastros {
             const { id } = req.params;//pegar o id o cadstro seleciondo
 
             if (!first_name || !last_name | !email) {//verifica campos obrigatorios
-                res.status(400).json({ message: "Preencha tods os campos obtigatórios" });
+                return res.status(400).json({ message: "Preencha tods os campos obtigatórios" });
+            }
+            const {isBad, warn} = validateFields(first_name, last_name, email, phone);
+            if(isBad){
+                return res.status(400).json({ message: warn });
             }
 
             const query = `UPDATE cadastros SET 
