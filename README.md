@@ -42,7 +42,7 @@ npm run dev
 http://localhost:3000/
 
 ## Deploy
-https://tqweb-api.onrender.com/
+https://zeno-api-gilt.vercel.app
 
 
 
