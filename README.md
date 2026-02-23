@@ -11,8 +11,6 @@ Status: Em desenvolvimento ativo.
 - Node.js
 - Express
 - pg (driver para conectar base de dados)
-- JWT (em analise)
-- Bcrypt (em analise)
 - Dotenv
 
 ## Instalação
@@ -41,10 +39,10 @@ npm run dev
 
 ## Base URL
 
-http://localhost:3000/api
+http://localhost:3000/
 
 ## Deploy
-https://tqweb-api.onrender.com/api
+https://tqweb-api.onrender.com/
 
 
 
