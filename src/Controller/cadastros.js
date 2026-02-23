@@ -29,16 +29,18 @@ class Cadastros {
     static async Show(req, res) {//exibir cadastros
 
         try {
-            const { id } = req.query;
+            let { id } = req.query;
 
             let query = "SELECT *FROM cadastros "
+            let result;
             //caso haja um id, acescenta isso na quey- query dinamica
             if (id) {
                 query += ' WHERE id = $1';
+                result = await pool.query(query, [id]);
             } else {
-                query += ' ORDER BY first_name DESC';
+                query += ' ORDER BY first_name';
+                result = await pool.query(query);
             }
-            const result = await pool.query(query, [id]);
 
             if (result.rows.length > 0) {
                 res.status(200).json(result.rows);
@@ -82,6 +84,7 @@ class Cadastros {
 
         try {
             const { id } = req.params;//pegar o id o cadstro seleciondo
+            console.log(id)
             if (!id) {
                 res.status(400).json({ messge: "Deves selecionar um usuário" })
             }
@@ -92,7 +95,7 @@ class Cadastros {
                 res.status(404).json({ message: "Cadastro inexistente!" })
             }
         } catch (err) {
-            console.log(err)
+            //console.log(err)
             res.status(500).json({ message: "Erro ao deletar, tente mais tarde!" })
         }
     }

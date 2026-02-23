@@ -95,3 +95,20 @@ __Cadastros__(
 
 
 ## Rotas
+
+- GET /cadastros/show
+    * query ?id=id_do_cadastro (opcional)
+    * Retorna lista de todos cadastros ou apenas um.
+
+- POST /cadastros/register
+    * body :{first_name, last_name, emaio, phone, contact}
+    * Retorna: {message: "a mensagem, pode ser erro ou de sucess"}
+
+- PUT /cadastros/update/id
+    * params /id
+    * body :{first_name, last_name, emaio, phone, contact}
+    * Retorna: {message: "a mensagem, pode ser erro ou de sucess"}
+
+- DELETE /cadastros/id
+    * params /id
+    * Retorna: {message: "a mensagem, pode ser erro ou de sucess"}
